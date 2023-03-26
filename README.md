@@ -9,6 +9,9 @@ Flutter开发的桌面版网易云第三方播放器（仿官方客户端）
 # 界面
 本项目基本是仿照官方客户端布局写的，做了美化与调整，上手即用无需改变使用习惯。
 
+![img 截图](https://raw.githubusercontent.com/XiaoXianThis/FlutterCloudMusic/main/IMG/IMG-01.png)
+![img 截图](https://raw.githubusercontent.com/XiaoXianThis/FlutterCloudMusic/main/IMG/IMG-02.png)
+![img 截图](https://raw.githubusercontent.com/XiaoXianThis/FlutterCloudMusic/main/IMG/IMG-03.png)
 
 # 特点
 + 使用`Flutter`开发，程序体积比官方小很多（压缩后`20M`左右），内存使用也低于官方客户端。

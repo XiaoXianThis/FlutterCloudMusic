@@ -11,11 +11,11 @@ class About extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        LogoWidget(),
-        HoverView(
-          padding: EdgeInsets.fromLTRB(20, 12, 20, 12),
-          child: const Text("使用到的开源项目", ),
-        ),
+        // LogoWidget(),
+        // HoverView(
+        //   padding: EdgeInsets.fromLTRB(20, 12, 20, 12),
+        //   child: const Text("使用到的开源项目", ),
+        // ),
         
       ],
     );

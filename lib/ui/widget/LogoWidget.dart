@@ -22,7 +22,7 @@ class LogoWidget extends StatelessWidget {
         ),
         const Padding(padding: EdgeInsets.all(3)),
         const Text("简易云音乐", style: TextStyle(fontSize: 19, fontWeight: FontWeight.w600)),
-        const SizedBox(width: 80, child: Text("  v0.0.1", style: TextStyle(fontSize: 12, color: Colors.black38),)),
+        const SizedBox(width: 80, child: Text("  v0.1", style: TextStyle(fontSize: 12, color: Colors.black38),)),
       ],
     );
   }

@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:convert';
 import 'dart:math';
 import 'package:audioplayers/audioplayers.dart';
 import 'package:get/get.dart';
@@ -12,10 +13,10 @@ import '../api/http.dart';
 
 //播放模式
 enum PlayMode {
-  sequential, //顺序播放
-  loop,       //单曲循环
-  listLoop,   //列表循环
-  random,     //随机播放
+  sequential, //顺序播放 0
+  loop,       //单曲循环 1
+  listLoop,   //列表循环 2
+  random,     //随机播放 3
 }
 
 //播放状态
@@ -78,7 +79,11 @@ class Player extends GetxController {
     volume.value = storage.read("volume") ?? 1.0;
     player.setVolume(volume.value);
     //播放模式
-    playMode.value = storage.read("playmode") ?? PlayMode.sequential;
+    var temp = storage.read("playmode") ?? 0;
+    if(temp == 0) playMode.value = PlayMode.sequential;
+    else if(temp == 1) playMode.value = PlayMode.loop;
+    else if(temp == 2) playMode.value = PlayMode.listLoop;
+    else if(temp == 3) playMode.value = PlayMode.random;
     //重置播放器
     player.setSource(UrlSource(""));
   }
@@ -255,11 +260,12 @@ class Player extends GetxController {
 
   //切换播放模式
   void changePlayMode(){
-    if(playMode.value == PlayMode.sequential){ playMode.value = PlayMode.listLoop; }
-    else if(playMode.value == PlayMode.listLoop){ playMode.value = PlayMode.loop; }
-    else if(playMode.value == PlayMode.loop){ playMode.value = PlayMode.random; }
-    else if(playMode.value == PlayMode.random){ playMode.value = PlayMode.sequential; }
-    storage.write("playmode", playMode.value);
+    if(playMode.value == PlayMode.sequential){ playMode.value = PlayMode.listLoop; storage.write("playmode", 2); }
+    else if(playMode.value == PlayMode.listLoop){ playMode.value = PlayMode.loop; storage.write("playmode", 1); }
+    else if(playMode.value == PlayMode.loop){ playMode.value = PlayMode.random; storage.write("playmode", 3);  }
+    else if(playMode.value == PlayMode.random){ playMode.value = PlayMode.sequential; storage.write("playmode", 0);  }
+
+    print(storage.read("playmode"));
   }
 
 

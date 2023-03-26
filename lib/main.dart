@@ -5,11 +5,6 @@ import 'package:music/api/LoadCore.dart';
 import 'package:music/data/Global.dart';
 import 'package:music/ui/MainFrame.dart';
 
-
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-
-
 void main() async {
   //运行核心
   loadCore();
